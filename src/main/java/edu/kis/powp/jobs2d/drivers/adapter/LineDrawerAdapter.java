@@ -10,10 +10,12 @@ public class LineDrawerAdapter implements Job2dDriver {
 
     private DrawPanelController drawPanelController;
     private ILine line;
+    private String name;
 
-    public LineDrawerAdapter(DrawPanelController drawPanelController, ILine line) {
+    public LineDrawerAdapter(DrawPanelController drawPanelController, ILine line, String name) {
         this.drawPanelController = drawPanelController;
         this.line = line;
+        this.name = name;
     }
 
     @Override
@@ -33,6 +35,6 @@ public class LineDrawerAdapter implements Job2dDriver {
 
     @Override
     public String toString() {
-        return "Special line type";
+        return name;
     }
 }

@@ -13,6 +13,7 @@ import edu.kis.powp.jobs2d.drivers.adapter.DrawerControllerAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDrawerAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
+import edu.kis.powp.jobs2d.features.CustomLineFeature;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
 
@@ -48,8 +49,9 @@ public class TestJobs2dPatterns {
 		Job2dDriver testDriver = new DrawerControllerAdapter(DrawerFeature.getDrawerController());
 		DriverFeature.addDriver("Buggy Simulator", testDriver);
 
-		Job2dDriver lineDriver = new LineDrawerAdapter(DrawerFeature.getDrawerController(), LineFactory.getSpecialLine());
+		Job2dDriver lineDriver = new LineDrawerAdapter(DrawerFeature.getDrawerController(), LineFactory.getSpecialLine(), "Special line");
 		DriverFeature.addDriver("Special line", lineDriver);
+
 
 		DriverFeature.updateDriverInfo();
 	}
@@ -84,6 +86,7 @@ public class TestJobs2dPatterns {
 		application.addComponentMenuElement(Logger.class, "OFF logging", (ActionEvent e) -> logger.setLevel(Level.OFF));
 	}
 
+
 	/**
 	 * Launch the application.
 	 */
@@ -98,6 +101,7 @@ public class TestJobs2dPatterns {
 				setupDrivers(app);
 				setupPresetTests(app);
 				setupLogger(app);
+				CustomLineFeature.setupCustomLine(app);
 
 				app.setVisibility(true);
 			}
